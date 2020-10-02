@@ -1,14 +1,12 @@
 from gtts import gTTS
 import speech_recognition as sr
-from pygame import mixer
+from playsound import playsound
 
+#function to convert text to speech and play the sound
 def talk(audio):
-    print(audio)
     for line in audio.splitlines():
         text_to_speech = gTTS(text=audio, lang='en-uk')
         text_to_speech.save('audio.mp3')
-        mixer.init()
-        mixer.music.load("audio.mp3")
-        mixer.music.play()
+        playsound("audio.mp3")
 
 talk('Hey! I am Easy Dictionary.')
